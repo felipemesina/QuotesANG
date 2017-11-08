@@ -1,0 +1,16 @@
+<h1>Add a Quote</h1>
+<section>
+  <form (submit)="onSubmit(formData)" #formData="ngForm">
+    <div class="form-group">
+      <label for="quote">Quote:</label>
+      <input type="text" name="body" required minlength="4" [(ngModel)]="newQuote.body" #body="ngModel">
+      <div *ngIf="!body.valid">A quote is required.</div>
+    </div>
+    <div class="form-group">
+    <label for="author">Author:</label>
+    <input  type="text" name="author" required minlength="2" [(ngModel)]="newQuote.author" #author="ngModel">
+    <div *ngIf="author.invalid">An author is required.</div>
+    </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!formData.valid">Add</button>
+  </form>
+</section>
